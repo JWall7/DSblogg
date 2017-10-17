@@ -1,0 +1,30 @@
+---
+title: Histogram
+author: Me
+date: '2017-10-17'
+slug: histogram
+categories: []
+tags: []
+---
+
+
+
+<pre class="r"><code>library(Lahman)
+library(sqldf)
+library(ggplot2)</code></pre>
+<p>This is an example of the code we use to use to make histograms:</p>
+<pre class="r"><code># extracting the data------------------------
+
+query&lt;-&quot;SELECT weight
+FROM Master&quot;
+
+result&lt;-sqldf(query)
+
+# visualize the data-----------------------------
+
+ggplot()+
+  geom_histogram(data=result,aes(x=weight),
+  color=&quot;blue&quot;,fill=&quot;white&quot;,bins=40)+
+  ggtitle(&quot;Body Weight Distribution For Baseball Players&quot;)</code></pre>
+<pre><code>## Warning: Removed 854 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="/post/2017-10-17-histogram_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>

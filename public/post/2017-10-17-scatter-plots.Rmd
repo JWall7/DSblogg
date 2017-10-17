@@ -1,0 +1,33 @@
+---
+title: Scatter Plots
+author: Me
+date: '2017-10-17'
+slug: scatter-plots
+categories: []
+tags: []
+---
+
+```{r message=FALSE, warning=FALSE}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+```
+
+This is an example of the code we use to make scatterplots:
+
+```{r}
+query<-"SELECT playerID, sum(HR) AS career_HR,
+sum(SO) AS career_SO
+FROM Batting
+GROUP BY playerID
+HAVING sum(HR)>=400"
+
+result<-sqldf(query)
+
+ggplot()+
+  geom_point(data=result, aes(x=career_SO,y=career_HR), size=4, color="green")+
+  ggtitle("Career Strikeouts vs. Homeruns for Great Hitters")+
+  xlab("Career Strikeouts")+
+  ylab("Career Homeruns")
+```
+

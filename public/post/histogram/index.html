@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>404 Page not found &middot; Wallace&#39;s DS Blog</title>
+        <title>Wallace&#39;s DS Blog</title>
         <meta name="author">
         <meta name="description" content="What I do on MWF in the Morning">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -39,11 +39,83 @@
           </div>
         </header>
 
+
 <div class="container clearfix">
     <main role="main" class="content">
+        <article class="post">
             <a class="btn home" href="https://jwallblog.netlify.com/" title="Back to home">&laquo; Back to home</a>
-            <h1>404 - page not found</h1>
-            <p>The content you&#39;re looking for doesn&#39;t seem to exist.</p>
+            
+<h1><a href="https://jwallblog.netlify.com/post/histogram/" title="Histogram">Histogram</a></h1>
+
+<footer class="post-info">Posted on <span class="post-meta"><time datetime="2017.10.17">2017.10.17</time>
+
+    
+
+</span>
+</footer>
+
+            <pre class="r"><code>library(Lahman)
+library(sqldf)
+library(ggplot2)</code></pre>
+<p>This is an example of the code we use to use to make histograms:</p>
+<pre class="r"><code># extracting the data------------------------
+
+query&lt;-&quot;SELECT weight
+FROM Master&quot;
+
+result&lt;-sqldf(query)
+
+# visualize the data-----------------------------
+
+ggplot()+
+  geom_histogram(data=result,aes(x=weight),
+  color=&quot;blue&quot;,fill=&quot;white&quot;,bins=40)+
+  ggtitle(&quot;Body Weight Distribution For Baseball Players&quot;)</code></pre>
+<pre><code>## Warning: Removed 854 rows containing non-finite values (stat_bin).</code></pre>
+<p><img src="/post/2017-10-17-histogram_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+
+            <ul class="share-buttons">
+    <li>Share this article:</li>
+    <li>
+        <a class="icon-facebook-squared" href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fjwallblog.netlify.com%2fpost%2fhistogram%2f" onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;" title="Share on Facebook"></a>
+    </li>
+    <li>
+        <a class="icon-twitter" href="https://twitter.com/share?text=Histogram&amp;url=https%3a%2f%2fjwallblog.netlify.com%2fpost%2fhistogram%2f" onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;" title="Tweet this article"></a>
+    </li>
+    <li>
+        <a class="icon-gplus" href="https://plus.google.com/share?url=https%3a%2f%2fjwallblog.netlify.com%2fpost%2fhistogram%2f" onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;" title="Share on Google&#43;"></a>
+    </li>
+    <li>
+        <a class="icon-linkedin" href="https://www.linkedin.com/shareArticle?mini=true&url=https%3a%2f%2fjwallblog.netlify.com%2fpost%2fhistogram%2f&title=Histogram" onclick="window.open(this.href, 'linkedin-share', 'width=600,height=494');return false;" title="Share on Linkedin"></a>
+    </li>
+</ul>
+
+        </article>
+        
+        <div class="comments">
+            <h3>Comments</h3>
+            <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "spf13" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        </div>
+        
     </main>
     <aside class="author">
   <img class="profile-image" src="https://jwallblog.netlify.com/img/cheetos.png" alt="Wallace" />
@@ -77,6 +149,7 @@
 </aside>
 
 </div>
+
 <footer class="main-footer">
   <div class="container clearfix">
         <a class="icon-rss" href="https://jwallblog.netlify.com/post/index.xml" title="RSS"></a>

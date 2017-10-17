@@ -1,0 +1,34 @@
+---
+title: Histogram
+author: Me
+date: '2017-10-17'
+slug: histogram
+categories: []
+tags: []
+---
+
+```{r message=FALSE, warning=FALSE}
+library(Lahman)
+library(sqldf)
+library(ggplot2)
+```
+
+
+This is an example of the code we use to use to make histograms:
+
+```{r}
+# extracting the data------------------------
+
+query<-"SELECT weight
+FROM Master"
+
+result<-sqldf(query)
+
+# visualize the data-----------------------------
+
+ggplot()+
+  geom_histogram(data=result,aes(x=weight),
+  color="blue",fill="white",bins=40)+
+  ggtitle("Body Weight Distribution For Baseball Players")
+```
+

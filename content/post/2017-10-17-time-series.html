@@ -1,0 +1,30 @@
+---
+title: Time Series
+author: Me
+date: '2017-10-17'
+slug: time-series
+categories: []
+tags: []
+---
+
+
+
+<pre class="r"><code>library(Lahman)
+library(sqldf)
+library(ggplot2)</code></pre>
+<p>This is an example of the code we use to make a Time Series:</p>
+<pre class="r"><code># extract the data----------------------------
+
+query&lt;-&quot;SELECT yearID, HR
+FROM Batting
+WHERE playerID=&#39;ruthba01&#39;&quot;
+
+result&lt;-sqldf(query)
+
+ggplot()+
+  geom_point(data=result,aes(x=yearID,y=HR))+
+  geom_line(data=result,aes(x=yearID,y=HR))+
+  ggtitle(&quot;Ruth&#39;s Homerun Totals Throughout the Years&quot;)+
+  xlab(&quot;Year&quot;)+
+  ylab(&quot;Homeruns&quot;)</code></pre>
+<p><img src="/post/2017-10-17-time-series_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
