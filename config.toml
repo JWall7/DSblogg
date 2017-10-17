@@ -15,7 +15,7 @@ theme = "hugo-minimalist-theme"
     location = "Mercyhurst"
     # Link custom assets relative to /static
     avatar = "img/cheetos.png"
-    header_background = "img/palms2.jpg"
+    header_background = "img/palms-and-sunset.jpg"
     header_title = "MY DS CHEETO BLOG"
     copyright = "Powered by [Hugo](http://gohugo.io)."
     custom_css = []
